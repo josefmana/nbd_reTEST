@@ -52,3 +52,5 @@ test;index;Pearson's r;95% CI;t-statistic;p-value (r);Spearman's rho;S statistic
 20_rozpoznavani_emoci;20_suma_body;.61;[.38, .77];4.947;< .001;.71;4109.1;< .001
 21_teorie_mysli;21_sum_body;.40;[.11, .62];2.807;.008;.38;8815.8;.011
 6_trideni;6_suma_body;.70;[.51, .83];6.382;< .001;.70;4235.7;< .001
+3_neverbalni_pamet;3_sumP1.4;.65;[.43, .79];5.472;< .001;.73;3816.4;< .001
+3_neverbalni_pamet;3_sumodd;.46;[.19, .66];3.342;.002;.43;8131.0;.004

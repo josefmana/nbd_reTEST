@@ -66,6 +66,8 @@ v <-
   filter( !grepl("err_",variable) ) %>% # emotion labeling errors
   filter( test != "3_neverbalni_pamet" ) %>% # get rid of the nonverbal memory variables (no sum scores available)
   add_row( variable = "suma_body", type = "cont", test = "6_trideni", name = NA ) %>% # return nonverbal memory
+  add_row( variable = "sumP1.4", type = "cont", test = "3_neverbalni_pamet", name = NA ) %>% # return nonverbal memory
+  add_row( variable = "sumodd", type = "cont", test = "3_neverbalni_pamet", name = NA ) %>%
   filter( !( variable == "HS" & test == "5_zrakova_pozornost" ) ) %>%
   filter( !( variable == "cas_adm (s)" & test == "19_orientace_v_prostoru" ) ) %>%
   filter( type != "cat" )

@@ -156,7 +156,7 @@ diffs <-
       group_by( test, index ) %>%
       t_test( score ~ retest, paired = T, detailed = T ) %>%
       mutate(
-        `diff [95% CI]` = paste0( rprint(estimate,2), " [", rprint(conf.low,2), ", ", rprint(conf.high,2), "]" ),
+        `diff [95% CI]` = paste0( rprint(-estimate,2), " [", rprint(-conf.low,2), ", ", rprint(-conf.high,2), "]" ),
         `t-value` = rprint( statistic, 3 ),
         `p-value (t-test)` = ifelse( p < .001, "< .001", zerolead( rprint(p,3) ) )
       ) %>%
@@ -170,7 +170,7 @@ diffs <-
     d2 %>%
       group_by( test, index ) %>%
       cohens_d( score ~ retest, paired = T ) %>%
-      mutate( `Cohen's d` = rprint(effsize,2) ) %>%
+      mutate( `Cohen's d` = rprint(-effsize,2) ) %>%
       select( test, index, `Cohen's d` ),
     
     by = c("test","index")
@@ -203,7 +203,9 @@ diffs <-
     
     by = c("test","index")
     
-  )
+  ) %>%
+  
+  relocate( `Cohen's d`, .before = `t-value` )
 
 # save it
 write.table( diffs, here("tabs","diffs.csv"), sep = ";", row.names = F, quote = F )
